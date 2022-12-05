@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewMaui"
+             xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:busyIndicator="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ListViewMaui.MainPage">
+
+    <ContentPage.Behaviors>
+        <local:Behavior/>
+    </ContentPage.Behaviors>
+    <Grid Padding="5">
+        <listview:SfListView x:Name="listView"
+                             ItemsSource="{Binding BookInfo}" ItemSize="110">
+            <listview:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowSpacing="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding BookName}" Grid.Row="0" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="{Binding BookDescription}" LineBreakMode="WordWrap" Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </listview:SfListView.ItemTemplate>
+        </listview:SfListView>
+
+        <busyIndicator:SfBusyIndicator x:Name="busyIndicator" 
+                                       AnimationType="SingleCircle" 
+                                       IsRunning="{Binding IsLoading, Mode=TwoWay}" 
+                                       IndicatorColor="Magenta"
+                                       SizeFactor="0.50"/>
+    </Grid>
+</ContentPage>
