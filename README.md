@@ -1,10 +1,10 @@
 # show-busy-indicator-while-loading-.net-maui-listview
 How to show the busy indicator while loading the .NET MAUI ListView (SfListView) ?
 
- . NET MAUI ListView (SfListView) allows you to displaying the SfBusyIndicator while loading the bounded items. The busy indicator can be enabled and disabled by using IsRunning property.
+ [. NET MAUI ListView (SfListView)](https://www.syncfusion.com/maui-controls/maui-listview) allows you to displaying the `SfBusyIndicator` while loading the bounded items. The busy indicator can be enabled and disabled by using IsRunning property.
 XAML
-Bind the value of ViewModel.IsLoading property to SfBusyIndicator.IsRunning property, to enable or disable busy indicator into the view until items loaded in the SfListView
-
+Bind the value of `ViewModel.IsLoading property` to `SfBusyIndicator.IsRunning property`, to enable or disable busy indicator into the view until items loaded in the SfListView
+```c#
 <ContentPage xmlns:listview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:busyIndicator="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core”>
   <Grid>
@@ -20,10 +20,9 @@ Bind the value of ViewModel.IsLoading property to SfBusyIndicator.IsRunning prop
                                        SizeFactor="0.5"/>
   </Grid>
 </ContentPage>
-
-C#
+```
 In behavior class set IsLoading property value to true and false based items generation using Loaded event.
-
+```c#
 public class Behavior:Behavior<ContentPage>
     {
         SfListView listView;
@@ -57,5 +56,6 @@ public class Behavior:Behavior<ContentPage>
             listView.Loaded -= ListView_LoadedAsync;
         }
     }
+```
 
-Please take a moment to peruse the documentation to learn more about SfListView and its related operations with code examples.
+Please take a moment to peruse the [documentation](https://help.syncfusion.com/maui/listview/overview) to learn more about SfListView and its related operations with code examples.
